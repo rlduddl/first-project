@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+khacademy
+<form action="" method="">
+    <fieldset>
+        <legend>로그인</legend>
+        <label for="userID">사용자ID</label>
+        <input type="search" id="userID" size="4" value="1234" maxlength="4"/>
+        <button>삭제</button>
+        <label for="userPW">사용자PW</label>
+        <input type="password" id="userPW" />
+        <label for="check">체크1</label>
+        <input type="checkbox" id="check" value="체크1번"/>
+        
+        <label for="rd1">약관 동의</label>
+        <input type="radio" name="rd" id="rd1" value="동의"/>
+        
+        <label for="rd2">약관 미동의</label>
+        <input type="radio" name="rd" id="rd2" value="미동의" checked/>
+    </fieldset>
+
+<ul>
+    <li><input type="date" id="date"></li>
+    <li><input type="month" id="month"></li>
+    <li><input type="week" id="week"></li>
+    <li><input type="time" id="time"></li>
+    <li><input type="datetime-local" id="datetime-local"></li>
+</ul>
+
+<button type="button" id="btn">확인</button>
+
+<script>
+    const btn = document.querySelector('#btn');
+    // const btn = document.getElementById('btn');
+    btn.addEventListener('click', function() {
+        const date = document.querySelector('#date');
+        const month = document.querySelector('#month');
+        const week = document.querySelector('#week');
+        const time = document.querySelector('#time');
+        const datetimeLocal = document.querySelector('#datetime-local');
+        console.log(date.value)
+        console.log(month.value)
+        console.log(week.value)
+        console.log(time.value)
+        console.log(datetimeLocal.value)
+    })
+</script>
+
+
+</form>
+
+</body>
+</html>

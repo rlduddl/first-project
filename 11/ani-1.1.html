@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100vh;
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          hsl(170deg, 80%, 70%) hsl(190deg, 80%, 70%) hsl(250deg, 80%, 70%)
+            hsl(320deg, 80%, 70%)
+        );
+        background-size: 200%;
+        animation-name: ani;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      @keyframes ani {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+      .pushable {
+        background: rgb(192, 52, 43);
+        border-radius: 10px;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        margin-top: 100px;
+        margin-left: 100px;
+      }
+      .front {
+        display: block;
+        padding: 10px 40px;
+        font-size: 30px;
+        color: #fff;
+        background: rgb(68, 56, 54);
+        border-radius: 10px;
+        transform: translateY(-10px);
+      }
+      .pushable:active .front {
+        transform: translateY(0px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <button type="button" class="pushable">
+      <span class="front"> 버튼</span>
+    </button>
+  </body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글자색 바꾸기</title>
+    <style>
+      /* body {
+        text-align: center;
+      }
+      #heading {
+        color: blue;
+      }
+      #text {
+        color: gray;
+        font-size: 15px;
+      } */
+
+      /* div {
+        display: inline-block;
+        padding: 0 20px 30px 20px;
+        margin: 15px;
+        border: 1px solid #ccc;
+        line-height: 2;
+      }
+      div h3 {
+        text-align: center;
+        font-weight: bold;
+      } */
+      /* div {
+        display: inline-block;
+        padding: 0 20px 30px 20px;
+        margin: 15px;
+        border: 1px solid #ccc;
+        line-height: 2;
+      }
+      div h3 {
+        text-align: center;
+        font-weight: bold;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <h1 id="heading">자바스크립트</h1>
+    <p id="text">위 텍스트를 클릭해 보세요</p> -->
+
+    <script>
+      //   var heading = document.querySelector("#heading");
+      //   heading.onclick = function () {
+      //     heading.style.color = "green";
+      //   };
+      //   var result = prompt("회원가입 할래?", "12314");
+      //   alert(result);
+
+      //   document.write("<h1>hello world<h1>");
+
+      // int, boolean, float, double,......
+      // number, string, boolean, arrya, object, undefined, null
+      // number : 숫자형 (실수형, 정수형 모두 포함)
+      // string : 홀따움표 또는 쌍따옴표 묶어서 문자로 인식
+      // boolean : 논리형 (true, false)
+      // array : (1,2,3,4,5) x    [1,2,3,4,5]
+      // object : 객체 >> 예 : new Date()
+      // undefined : 자료형이 선언만하고 값을 할당하지 않았을때
+      // null : 값이 유효하지 않을때
+
+      //   var v1 = 0.1;
+      //   var v2 = "0.1";
+      //   var v3 = true;
+      //   var v4 = [1, 2, 3, 4, 5];
+      //   var v5 = new Date();
+      //   var v6;
+      //   var v7 = null;
+      //   var season = ["봄", "여름", "가을", "겨울"];
+      //   for (var i = 0; i < season.length; i++) {
+      //     console.log(season[i]);
+      //   }
+
+      //   console.log("v1", typeof v1);
+      //   console.log("v2", typeof v2);
+      //   console.log("v3", typeof v3);
+      //   console.log("v4", typeof v4);
+      //   console.log("v5", typeof v5);3
+      //   console.log("v6", typeof v6);
+      //   console.log("v7", typeof v7);
+
+      //   var memNum = prompt("입장객은 몇 명인가요?");
+      //   var colNum = prompt("한 줄에 몇 명씩 앉습니까?");
+
+      //   if (memNum % colNum === 0) rowNum = parseInt(memNum / colNum);
+      //   else rowNum = parseInt(MEMnUM / COLnUM) + 1;
+      //   document.write("모두 " + rowNum + "개의 줄이 필요합니다.");
+
+      //   var i, j;
+      //   for (i = 1; i <= 9; i++) {
+      //     document.write("<div>");
+      //     document.write("<h3>" + i + "단</h3>");
+      //     for (j = 1; j <= 9; j++) {
+      //       document.write(i + " x " + j + " = " + i * j + "<br>");
+      //     }
+      //     document.write("</div>");
+      //   }
+
+      //호이스팅
+      //   greet();
+      //   function greet() {
+      //     console.log("greet");
+      //   }
+
+      // ES6 let const
+      // let a 변수 선언시 호이스팅은 되지만 초기화 전까지 접근할 수 없게 한다.
+      // 일시적 사각지대 Temporal Dead zone
+      //   console.log(a);
+      //   let a = 10;
+      //   abc();
+      //   function abc(a, b) {
+      //     return a + b;
+      //   }
+      //   console.log(abc(1, "2"));
+
+      // 함수표현식 -> 호이스팅 불가
+      //   abc2();
+      //   var abc2 = function () {
+      //     console.log("abcd");
+      //   };
+
+      //   var globalVar = "나는 글로벌";
+
+      //   function ex() {
+      //     var globalVar = "나는 로컬";
+      //     console.log(globalVar);
+      //   }
+      //   ex();
+      //   console.log(globalVar);
+
+      //   let a = 10;
+      //   a = 10;
+      //   console.log(a);
+      //   const b = 20;
+      //   b = 20;
+      //   console.log(b);
+
+      //   const hi = function () {
+      //     return "안녕하세요?";
+      //   };
+      //   const hi = () => {
+      //     return "안녕하세요?";
+      //   };
+      //   const hi = () => "안녕하세요?";
+
+      //   function add(a, b, c = 5, d = 10) {
+      //     return a + b + c + d;
+      //   }
+      //   const res1 = add(1, 2, 3, 4);
+      //   console.log(res1);
+      //   const res2 = add(1, 2, 3);
+      //   console.log(res2);
+      //   const res3 = add(1, 2);
+      //   console.log(res3);
+
+      //   const sum = function (a, b) {
+      //     // 익명 함수 , 호이스팅 x
+      //     return a + b;
+      //   };
+
+      //   (function (a, b) {
+      //     //do something
+      //     console.log(a + b);
+      //   })(1, 2);
+
+      //   // 형변환
+      //   let v = true;
+      //   console.log(typeof v);
+      //   // boolean -> String
+      //   v = String(v);
+      //   console.log(typeof v);
+      //   console.log(v);
+      //   //String -> number
+      //   let Str = "123";
+      //   console.log(Str);
+      //   let num = Number(Str);
+      //   console.log(typeof num);
+      //   console.log(num);
+
+      //   //
+      //   console.log(Number(true));
+      //   console.log(Number(false));
+      //   //
+      //   console.log(Boolean(1));
+      //   console.log(Boolean(0));
+      //   //
+      //   console.log(Boolean("1"));
+      //   console.log(Boolean(" "));
+
+      //   console.log("2" > 1);
+      //   console.log("01" == 1);
+      //   console.log("01" === 1);
+      //   console.log(true == 1);
+      //   console.log(false == 0);
+      //   let a = 0;
+      //   console.log(Boolean(a));
+      //   let b = "0";
+      //   console.log(Boolean(b));
+      //   console.log(a == b);
+
+      //   console.log(0 == false);
+      //   console.log(0 === false);
+      //   console.log("" == false);
+      //   console.log("" === false);
+      //   console.log(null == undefined);
+      //   console.log(null === undefined);
+
+      // 메서드내에서 this로 객체를 참조
+      // this 값은 런타임에 결정된다.
+      // 함수선언시 this를 사용할 수 있다. 단, 함수가 호출되기 전까지 this에는 값이 할당되지 않는다.
+      // 함수를 복사해서 객체간 전달가능
+      // 함수를 객체 속성에 저장해서 object.method() 같은 메서드형태로 호출하면 this는 object를 참조한다.
+      //   let user = {
+      //     name: "john",
+      //     age: 30,
+      //     sayHi() {
+      //       console.log(this.age, this.name);
+      //     },
+      //   };
+      //   let admin = user;
+      //   user = null;
+      //   admin.sayHi();
+
+      //   function abc() {
+      //     let name = "abc";
+      //     return name;
+      //   }
+      //   const abcdef = {
+      //     name: "abcdef",
+      //     sayHi() {
+      //       let arr = () => console.log(name);
+      //     },
+      //   };
+
+      // w = parseInt("a1234");
+      // console.log(w);
+      // console.log(Math.random);
+      // console.log(Math.max(1, 2, 3, 4, 5));
+      // console.log(Math.min(1, 4, 6, 2, 5));
+      // // 앞쪽 파라미터 값을 뒷쪽 파라미터 값에 거듭제곱
+      // console.log(Math.pow(2, 10));
+
+      // let num = 1.35;
+      // console.log(num.toFixed(1));
+
+      // let str = "widget with id";
+      // console.log(str.indexOf("widget"));
+      // console.log(str.indexOf("Widget"));
+      // console.log(str.indexOf("id", 3));
+
+      // console.log(str.slice(0, 5));
+      // console.log(str.slice(0));
+      // console.log(str.slice(-4, -1));
+      // console.log(str.substring(2, 6));
+
+      // let arr = new Array();
+      // let arr = [];
+      // let arr = ["사과", "오렌지", "자두"];
+      // console.log(arr[2]);
+      // arr[2] = "배";
+      // console.table(arr);
+      // console.log(arr.length);
+
+      // let arr = [
+      //   "사과",
+      //   { name: "박기영" },
+      //   function () {
+      //     console.log("안녕");
+      //   },
+      // ];
+      // console.table(arr);
+      // console.log(arr[2]());
+
+      // arr.pop(); // 배열 맨뒤 제거
+      // console.table(arr);
+      // arr.push("배"); //  맨뒤 추가
+      // console.table(arr);
+
+      // arr.shift(); // 배열 맨앞 제거
+      // console.table(arr);
+      // arr.unshift("오렌지"); // 맨앞 추가
+      // console.table(arr);
+
+      // for (let i = 0; i < arr.length; i++) {
+      //   console.log(arr[i]);
+      // }
+
+      // let arr = new Array(2);
+      // console.log(arr.length);
+      // console.log(arr[0]);
+
+      // let arr = ["사과", "오렌지", "배", "포도"];
+      // // 배열 요소의 n번째 부터 n개 삭제 시 사용
+      // // 그리고 삭제한 자리를 대체해서 데이터 삽입가능
+      // arr.splice(1, 1, "addd", "ggg");
+      // console.table(arr);
+      // // slice (startIndex, endIndex)
+      // let arr2 = arr.slice(1, 3);
+      // console.log(arr2);
+
+      // let arr1 = [1, 2];
+      // let arr2 = [3, 4];
+      // // concat : 배열 합치기
+      // console.log(arr1.concat(arr2));
+
+      // let arr = ["사과", "오렌지", "배", "포도"];
+      // // forEach
+      // arr.forEach((item, index) => {
+      //   console.log(item + " // " + index);
+      // });
+
+      // let users = [
+      //   { id: 1, name: "기영" },
+      //   { id: 2, name: "가영" },
+      //   { id: 3, name: "개영" },
+      // ];
+      // for (let i = 0; i < users.length; i++) {
+      //   console.log(users[i].id + " // " + users[i].name);
+      // }
+      // users.forEach((item, index) => {
+      //   console.log(item.id + " // " + item.name);
+      // });
+
+      // let users = [
+      //   { id: 1, name: "기영" },
+      //   { id: 2, name: "가영" },
+      //   { id: 3, name: "개영" },
+      // ];
+      // // find : 특정요소 반환 (1개의 요소 반환)
+      // const user = users.find((item) => item.id === 1);
+      // console.table(user);
+      // // filter : 특정요소 반환 (n개의 요소 반환)
+      // // id가 3보다 작은 요소 출력
+      // const kk = users.filter((item) => item.id < 3);
+      // console.table(kk);
+
+      // // sort 배열 정렬
+      // function compareNumeric(a, b) {
+      //   // 첫번째 값이 두번째값보다 클때
+      //   if (a > b) return 1;
+      //   // 두 값이 같은 경우
+      //   if (a == b) return 0;
+      //   // 첫번째 값이 두번째값보다 작을때
+      //   if (a < b) return -1;
+      // }
+      // const nums = [1, 2, 15];
+      // nums.sort(compareNumeric);
+      // console.log(nums);
+
+      // nums.reverse();
+      // console.log(nums);
+
+      // //split, join
+      // const names = "jone, marry, tiger";
+      // // split : 특정한 문자 기준으로 잘라서 배열 생성
+      // const namesArr = names.split(",");
+      // console.table(namesArr);
+      // const str = "testLetter";
+      // console.log(str.split(""));
+
+      // // join : split 반대
+      // const aaa = ["nameA", "nameB", "nameC"];
+      // const bbb = aaa.join(";");
+      // console.log(bbb);
+
+      // // [], {}
+      // console.log(typeof []);
+      // console.log(typeof {});
+      // console.log(Array.isArray({}));
+      // console.log(Array.isArray([]));
+
+      // pop : 맨끝에 요소 삭제
+      // push : 맨끝에 요소 추가
+      // shift : 맨앞에 요소 삭제
+      // unshift : 맨앞에 요소 추가
+      // splice : 특정 위치부터 특정갯수 지우기 + 추가하기
+      // slice : n번부터 n번 바로 앞까지 요소 복사 후 새로운 배열 생성
+      // concat : 배열 합치기
+      // find : 특정 요소 찾기 (1개)
+      // filter : 특정 요소 찾기 (n개)
+      // forEach : 배열 요소 출력
+      // sort : 정렬
+      // reverse : 역순 정렬
+      // Array.isArray : 배열인지 여부
+      // map : 배열을 순회해서 반환된 결과를 가지고 새로운 배열을 만든다.
+      // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      // const arr2 = arr.map((item, index) => {
+      //   if (item % 2 === 1) {
+      //     return 1;
+      //   } else {
+      //     return 2;
+      //   }
+      // });
+      // console.log(arr2);
+
+      // function filterRangeInPlace(arr, a, b) {
+      //   for (let i = 0; i < arr.length; i++) {
+      //     let val = arr[i];
+      //     // 범위 밖의 요소 제거
+      //     if (val < a || val > b) {
+      //       arr.splice(i, 1);
+      //       i--;
+      //     }
+      //   }
+      // }
+      // let arr = [5, 3, 8, 1];
+      // // 1과 4 사이에 있지 않은 요소는 모두 제거
+      // // filterRangeInPlace(arr, 1, 4);
+      // // console.log(arr);  // [3, 1]
+
+      // console.log(arr);
+
+      let john = { name: "john", surname: "Smith", id: 1 };
+      let pete = { name: "Pete", surname: "Hunt", id: 2 };
+      let mary = { name: "Mary", surname: "Key", id: 3 };
+
+      let users = [john, pete, mary];
+
+      let usersMapped = users.map((user) => {
+        return {
+          fullName: user.name + " " + user.surname,
+          id: user.id,
+        };
+      });
+      console.log(usersMapped);
+
+      // let usersMapped = users.map((item, index) => {
+      //   consloe.console.log("fullName :" + name + surname + "id: " + id);
+      // }); // 코드작성
+
+      // usersMapped = {
+      //   {fullName: 'John Smith', id: 1}
+      // }
+    </script>
+  </body>
+</html>

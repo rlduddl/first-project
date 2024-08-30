@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>line-height</title>
+    <style>
+      h1 {
+        font-size: 60px; /* 글자 크기 */
+        font-family: Verdana, Geneva, Tahoma, sans-serif; /* 글꼴 */
+      }
+      .heading {
+        width: 100%; /* 영역 너비 */
+        height: 100px; /* 높이 */
+        background: #222; /* 배경 색 */
+        color: rgb(255, 255, 255); /* 글자 색 */
+        text-align: center; /* 가로 정렬 - 가운데 */
+        /* Do it! line-height 속성을 사용해 세로로 가운데 정렬하기 */
+        line-height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="heading">HTML</h1>
+    <p style="text-decoration: none">none</p>
+    <p style="text-decoration: underline">underline</p>
+    <p style="text-decoration: overline">overline</p>
+    <p style="text-decoration: line-through">line through</p>
+
+    <style>
+      .shadow1 {
+        color: red;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        letter-spacing: -1px;
+      }
+      .shadow2 {
+      }
+      .shadow3 {
+        word-spacing: 10px;
+      }
+    </style>
+
+    <h1 class="shadow1">HTML</h1>
+    <h1 class="shadow2">CSS</h1>
+    <h1 class="shadow3">자바 스크립트</h1>
+  </body>
+</html>

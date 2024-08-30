@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>배경 이미지</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .visual {
+        background: url("images/bg5.jpg");
+        background-size: cover;
+        background-position: center;
+        background: url("images/bg5.jpg") no-repeat center center cover;
+        border: 1px solid red;
+        height: 400px;
+      }
+
+      h1 {
+        margin-top: 130px;
+        font-size: 80px; /* 글자 크기 */
+        text-align: center; /* 가운데 정렬 */
+        color: white;
+      }
+      body {
+        background: rgb(236, 24, 1);
+        background: linear-gradient(
+          90deg,
+          rgba(236, 24, 1, 1) 10%,
+          rgba(77, 172, 60, 1) 53%,
+          rgba(252, 0, 255, 1) 74%
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="visual">Do it!</h1>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>블록 레벨과 인라인 레벨</title>
+    <style>
+      * {
+        /* 박스 크기 계산 */
+        box-sizing: border-box;
+      }
+      body * {
+        /* body 하위에 있는 모든 요소에 대해 */
+        border: 1px solid blue;
+      }
+      .accent {
+        color: red;
+        font-weight: bold;
+      }
+      * {
+      }
+      .blockTag {
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        /* box-shadow: 2px -2px 5px 0px blue inset; */
+        border: 5px solid red;
+        border-radius: 20px;
+        border-radius: 50%;
+        /* border-top-left-radius: 50px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 80px; */
+      }
+      .marginText {
+        /*width: 150px;*/ /* 나중에 레이아웃 재배치를 위해서라도 width값은 가급적 지정 x */
+        margin: auto; /* 가운대로 감 */
+        margin-top: 50px;
+        margin-bottom: 10px;
+        /*		상	우	하	좌 		*/
+        /* margin: 10px 20px 30px 40px; */
+      }
+      div {
+        border: 1px solid #222;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #container {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blockTag">h1 ~ h6, p 태그 그리고 div 등 블럭 속성</div>
+    <span>i, span, u 등 인라인 속성</span>
+
+    <h1>시간이란...</h1>
+    <div class="marginText">
+      내일 죽을 것처럼
+      <span class="accent">오늘</span>
+      을 살고
+    </div>
+    <div class="marginText">
+      내일 죽을 것처럼
+      <span class="accent">오늘</span>
+      을 살고
+    </div>
+    <div class="marginText">
+      내일 죽을 것처럼
+      <span class="accent">오늘</span>
+      을 살고
+    </div>
+    <p>영원히 살 것처럼 <br />내일을 꿈꾸어라.</p>
+    <div id="container">container</div>
+    <div id="container">description</div>
+    <div id="container">receipe</div>
+    <div id="container">package</div>
+  </body>
+</html>

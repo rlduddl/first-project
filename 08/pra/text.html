@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>블록 레벨과 인라인 레벨</title>
+    <style>
+      div {
+        border: 1px solid red;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      #container {
+        width: 600px;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+      #description {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin: 30px auto;
+      }
+      #receipe {
+        margin: 30px auto;
+      }
+      #package {
+        margin: 30px auto;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      #description,
+      #receipe,
+      #package {
+        padding: 20px;
+        width: 300px;
+      }
+    </style>
+    <body>
+      <div id="container">
+        <div id="description">description</div>
+        <div id="receipe">receipe</div>
+        <div id="package">package</div>
+      </div>
+    </body>
+  </head>
+</html>
