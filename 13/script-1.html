@@ -40,11 +40,80 @@
       } */
     </style>
   </head>
+
   <body>
-    <!-- <h1 id="heading">자바스크립트</h1>
-    <p id="text">위 텍스트를 클릭해 보세요</p> -->
+    <!-- <div>시작</div>
+    <ul>
+      <li>항목1</li>
+      <li>항목2</li>
+    </ul>
+    <div>끝</div> -->
+    <!-- <style>
+      ul > li:last-child {
+        color: red;
+      }
+    </style>
+
+    <ul>
+      <li>1 - 1</li>
+      <li>1 - 2</li>
+    </ul>
+    <ul>
+      <li>2 - 1</li>
+      <li>2 - 2</li>
+    </ul>
+    <a href="http://google.com/file.zip">링크 1</a>
+    <a href="http://google.com">링크 2</a> -->
+    <h1>목차</h1>
+    <div class="contents">
+      <ul class="book">
+        <li class="chapter">1장</li>
+        <li class="chapter">2장</li>
+      </ul>
+    </div>
 
     <script>
+      //childNodes
+      // for (let i = 0; i < document.body.childNodes.length; i++) {
+      //   console.log(document.body.childNodes[i]);
+      // }
+      // console.log(document.body.lastChild);
+
+      // for (let node of document.body.childNodes) {
+      //   console.log(node);
+      // }
+      // document.body.childNodes[0] = "adfasf";
+
+      // const elem = document.getElementById("elem");
+      // elem.style.background = "red";
+
+      // const elems = document.querySelectorAll("ul > li:last-child");
+      // for (let elem of elems) {
+      //   elems.forEach((item) => console.log(item.innerHTML));
+      // }
+      // :hover, :active
+      // querySelector : 주어진 css 선택자에서 첫번째 요소를 반환
+      // const el = document.querySelector("ul");
+      // console.log(el);
+      // document.querySelector("ul"); >>>
+      // document.querySelectorALL("ul")[0];
+
+      // matches 주어진 css선택자와 일치하는지 여부판단
+
+      // for (let el of document.body.children) {
+      //   if (el.matches(`a[href$="zip"]`)) {
+      //     console.log(el.href);
+      //   }
+      // }
+
+      // closet : 부모요소, 부모요소의 부모요소 등 DOM 트리에서 특정 요소의 상위에 있는 요소들을 조상요소라고 한다.
+      // 메서드 elem. closest(css) ---> elem 자기 자신을 포함해서 css 선택자와 일치하는 가장 가까운 조상요소를 찾는다.
+      // 해당 요소로부터 시작해서 DOM트리를 한단계씩 거슬러 올라간다.
+      // 선택자와 일치하는 요소를 찾으면 검색을 중단하고 해당 요소를 반환한다.
+      let chapter = document.querySelector(".chapter");
+      console.log(chapter.closest(".book"));
+      console.log(chapter.closest(".contents"));
+
       //   var heading = document.querySelector("#heading");
       //   heading.onclick = function () {
       //     heading.style.color = "green";
@@ -415,19 +484,19 @@
 
       // console.log(arr);
 
-      let john = { name: "john", surname: "Smith", id: 1 };
-      let pete = { name: "Pete", surname: "Hunt", id: 2 };
-      let mary = { name: "Mary", surname: "Key", id: 3 };
+      // let john = { name: "john", surname: "Smith", id: 1 };
+      // let pete = { name: "Pete", surname: "Hunt", id: 2 };
+      // let mary = { name: "Mary", surname: "Key", id: 3 };
 
-      let users = [john, pete, mary];
+      // let users = [john, pete, mary];
 
-      let usersMapped = users.map((user) => {
-        return {
-          fullName: user.name + " " + user.surname,
-          id: user.id,
-        };
-      });
-      console.log(usersMapped);
+      // let usersMapped = users.map((user) => {
+      //   return {
+      //     fullName: user.name + " " + user.surname,
+      //     id: user.id,
+      //   };
+      // });
+      // console.log(usersMapped);
 
       // let usersMapped = users.map((item, index) => {
       //   consloe.console.log("fullName :" + name + surname + "id: " + id);
@@ -436,6 +505,134 @@
       // usersMapped = {
       //   {fullName: 'John Smith', id: 1}
       // }
+
+      // Template Literal 템플릿 리터럴
+
+      // // destructuring  구조 분해 할당
+      // let arr = ["기영", "박"]; // 이름, 성
+      // // 구조 분해 할당
+      // let [firstName, surname] = arr;
+      // console.log(firstName);
+      // console.log(surname);
+      // let [f, s] = "기영 박".split(" ");
+      // console.log(f, s);
+      // //쉼표 사용시 요소 무시
+      // let [a, , c] = [1, 2, 3];
+      // console.log(a, c);
+
+      // let [d, e, fg] = "abc";
+      // console.log(d, e, fg);
+
+      // let [one, two, three] = new Set([1, 2, 3]);
+      // console.log(one, two, three);
+
+      // let user = {};
+      // [user.name, user.surname] = "기영 박".split(" ");
+      // console.log(user.name);
+
+      // let user = new Map();
+      // user.set("name", "기영");
+      // user.set("surname", "박");
+      // for (let [key, value] of user) {
+      //   console.log(`${key} // ${value}`);
+      // }
+
+      // // 객체 분해하기
+      // let option = {
+      //   title: "메뉴",
+      //   width: 100,
+      //   height: 200,
+      // };
+
+      // let { title, width, height } = Option;
+      // // let title = option.title;
+      // // let width = option.width;
+      // // let height = option.height;
+      // console.log(option.title);
+      // console.log(option.width);
+      // console.log(option.height);
+
+      // let { title, width: w = 100, height: h = 200 } = Option;
+      // console.log(w);
+      // console.log(h);
+
+      // 객체 분해하기
+      // let option = {
+      //   size: {
+      //     width: 100,
+      //     height: 200,
+      //   },
+      //   items: ["cake", "donut"],
+      //   extra: true,
+      // };
+
+      // let {
+      //   size: { width, height },
+      //   items: [item1, item2],
+      //   title = "타이틀",
+      // } = option;
+
+      // console.log(width, height); // 100 200
+      // console.log(item1, item2); // cake donut
+      // console.log(title); // 타이틀
+
+      // destructuring 구조 분해 할당
+      // function showMenu(title, width, height, items) {
+      //   //
+      // }
+      // showMenu("my menu", undefined, undefined, ["item1", "item2"]);
+
+      // let options = {
+      //   title: "my title",
+      //   items: ["item1", "item2"],
+      // };
+      // function showMenu2({
+      //   title = "untitled",
+      //   width = 200,
+      //   height = 100,
+      //   items = [],
+      // }) {
+      //   console.log(`${title} ${width} ${height}`);
+      //   console.log(items);
+      // }
+      // showMenu2(options);
+
+      // 웹 브라우저는 window 라는 루트 객체가 있다.
+      // 1. 자바스크립트 코드의 전역 객체
+      // 2. 브라우저 창을 대변하고 이를 제어하는 메서드를 제공
+
+      // // 전역 함수
+      // function sayHi() {
+      //   console.log("안녕하세요.");
+      // }
+      // // 전역 함수는 전역 객체(window)의 메서드임
+      // window.sayHi();
+      // console.log(window.innerHeight);
+
+      // 문서 객체 모델(DOM : Document Object Model)
+      // document : document 객체는 페이지의 기본 '진입점' 역할을 한다.
+      // document 객체를 이용해서 페이지 내 뭐든간에 다 조작할 수 있다. 만들수도있다.
+
+      // // 배경을 빨간색으로 변경하고
+      // document.body.style.background = "red";
+      // // 1초 후에 원복한다.
+      // // setTimeout(할일, 1000);
+      // setTimeout(() => (document.body.style.background = ""), 1000);
+
+      // 브라우저 객체 모델 (BOM : Browser Object Model);
+      // 문서 이외의 모든 것을 제어하기 위해 브라우저가 제공하는 추가 객체
+      // alert, confirm, prompt
+
+      // 현재 URL 출력
+      // console.log(location.href);
+      // // location.href = 'https//www.google.com'
+      // if (confirm("구글로 이동")) {
+      //   location.href = "https://www.google.com";
+      // }
+
+      // console.log(document.documentElement);
+      // console.log(document.body);
+      // console.log(document.head);
     </script>
   </body>
 </html>
