@@ -35,17 +35,30 @@
     </div>
     <div id="box"></div>
     <script>
-      document.getElementById("btn").addEventListener("click", function () {
-        const width = document.getElementById("w").value;
-        const height = document.getElementById("h").value;
-        const color = document.getElementById("c").value;
+      const btn = document.querySelector("#btn");
+      const box = document.querySelector("#box");
 
-        const box = document.getElementById("box");
+      const width = document.querySelector("#w").value;
+      function doit() {
+        const height = document.querySelector("#h").value;
+        const color = document.querySelector("#c").value;
 
         box.style.width = width + "px";
         box.style.height = height + "px";
         box.style.backgroundColor = color;
-      });
+      }
+      btn.addEventListener("click", doit);
+
+      // document.getElementById("btn").addEventListener("click", function () {
+      //   const width = document.getElementById("w").value;
+      //   const height = document.getElementById("h").value;
+      //   const color = document.getElementById("c").value;
+      //   const box = document.getElementById("box");
+
+      //   box.style.width = width + "px";
+      //   box.style.height = height + "px";
+      //   box.style.backgroundColor = color;
+      // });
     </script>
   </body>
 </html>
