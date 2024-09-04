@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -32,17 +31,17 @@
     <main class="container">
       <ol class="movieList" id="movieList">
         <!--<li>
-          <a href="">
-            <div class="imgContainer">
-              <img src="https://picsum.photos/300/400" alt="" class="poster" />
-            </div>
-            <div class="infoContainer">
-              <p class="date">2024-01-01</p>
-              <h2 class="title">울버린</h2>
-              <div class="rate">100</div>
-            </div></a
-          >
-        </li>-->
+                <a href="">
+                    <div class="imgContainer">
+                        <img src="https://picsum.photos/300/400" alt="" class="poster" />
+                    </div>
+                    <div class="infoContainer">
+                        <p class="date">2024-01-01</p>
+                        <h2 class="title">울버린</h2>
+                        <div class="rate">100</div>
+                    </div></a>
+                >
+            </li>-->
       </ol>
     </main>
 
@@ -56,51 +55,51 @@
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          const { results } = data;
-          let html = "";
+          console.log(data); // API 응답 데이터를 콘솔에 출력
+          const { results } = data; // 응답 데이터에서 영화 목록을 추출
+          let html = ""; // HTML 문자열을 담을 변수
           results.forEach((element, index) => {
+            // 각 영화에 대한 HTML을 생성
             html += `
-              <li>
-                <a href="">
-                  <div class="imgContainer">
-                    <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="title" />
-                  </div>
-                  <div class="infoContainer">
-                    <p class="date">${element.release_date}</p>
-                    <h2 class="title">${element.title}</h2>
-                    <div class="rate" id="circle_${index}" data-rel="${element.vote_average}"></div>
-                  </div></a
-                >
-              </li>
-            `;
+                        <li>
+                            <a href="">
+                                <div class="imgContainer">
+                                    <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}" class="title" />
+                                </div>
+                                <div class="infoContainer">
+                                    <p class="date">${element.release_date}</p>
+                                    <h2 class="title">${element.title}</h2>
+                                    <div class="rate" id="circle_${index}" data-rel="${element.vote_average}"></div>
+                                </div>
+                            </a>
+                        </li>
+                    `;
           });
-          document.querySelector("#movieList").innerHTML = html;
-          // pie 형태의 차트 출력
+          document.querySelector("#movieList").innerHTML = html; // 생성된 HTML을 영화 목록에 삽입
+
+          // 원형 차트 출력
           document.querySelectorAll("#movieList li").forEach((item, index) => {
-            const relItem = item.querySelector("#circle_" + index);
+            const relItem = item.querySelector("#circle_" + index); // 각 영화의 평점을 담고 있는 div
             var ccl = Circles.create({
-              id: "circle_" + index,
-              radius: 15,
-              value: relItem.dataset.rel,
-              maxValue: 10,
-              width: 3,
+              id: "circle_" + index, // 차트의 ID
+              radius: 15, // 차트의 반지름
+              value: relItem.dataset.rel, // 차트의 값 (평점)
+              maxValue: 10, // 최대 값 (평점의 최대치)
+              width: 3, // 차트의 너비
               text: function (value) {
-                return value;
+                return value; // 차트에 표시할 텍스트 (평점)
               },
-              colors: ["#EFEFEF", "#DB2D43"],
-              duration: 400,
-              wrpClass: "circles-wrp",
-              textClass: "circles-text",
-              valueStrokeClass: "circles-valueStroke",
-              maxValueStrokeClass: "circles-maxValueStroke",
-              styleWrapper: true,
-              styleText: true,
+              colors: ["#EFEFEF", "#DB2D43"], // 차트의 색상
+              duration: 400, // 애니메이션 지속 시간
+              wrpClass: "circles-wrp", // 차트의 래퍼 클래스
+              textClass: "circles-text", // 텍스트 클래스
+              valueStrokeClass: "circles-valueStroke", // 값의 외곽선 클래스
+              maxValueStrokeClass: "circles-maxValueStroke", // 최대 값 외곽선 클래스
+              styleWrapper: true, // 래퍼 스타일 적용
+              styleText: true, // 텍스트 스타일 적용
             });
           });
         });
-      // "https://image.tmdb.org/t/p" + poster_path
-      // axios
     </script>
   </body>
 </html>
