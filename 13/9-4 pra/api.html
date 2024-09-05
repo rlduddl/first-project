@@ -89,6 +89,7 @@
 
       // 장르 클릭 시 장르에 맞는 영화 목록 요청
       document.querySelector("#genresList").addEventListener("click", (e) => {
+        console.log(e.target.tagName); // tagName 확인후 if절에 대입
         if (e.target.tagName === "BUTTON") {
           genreId = e.target.dataset.genre;
           document.querySelector("#genresContainer").style.display = "none";
