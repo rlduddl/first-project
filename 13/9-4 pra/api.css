@@ -135,6 +135,13 @@ body {
   box-sizing: border-box;
 }
 
+/**
+0 : 변수지정
+1 : 공통 스타일
+2 : 헤더 스타일
+3 : 푸터 스타일
+**/
+
 :root {
   --bg: #17141f;
   --text: #efefef;
@@ -146,6 +153,7 @@ a {
 button {
   background-color: transparent;
   border: 0;
+  cursor: pointer;
 }
 a,
 button {
@@ -166,6 +174,7 @@ body {
   background-color: rgba(20, 23, 31, 0.5);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(50px);
+  z-index: 1000;
 }
 .header .headerTop {
   display: flex;
@@ -241,4 +250,93 @@ body {
 }
 .movieList li a:hover {
   transform: translateY(-10px);
+}
+
+/** 미디어 쿼리를 사용해서 920픽셀 미만의 경우 movieList에 li 태그의 width를 50%로 변경한다. **/
+
+@media (min-width: 640px) and (max-width: 919px) {
+  .movieList li {
+    width: 50%;
+  }
+  .container {
+    width: auto;
+  }
+}
+
+/** 아이패드 : 가로 640px 세로 1024px **/
+
+@media (max-width: 639px) {
+  .movieList li {
+    width: auto;
+  }
+  .container {
+    width: auto;
+  }
+}
+
+.btnMore {
+  background-color: var(--primary);
+  display: block;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s;
+  margin: 50px auto 100px auto;
+}
+
+.btnMore:hover {
+  background-color: #ec0e2b;
+}
+
+.yearsContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.yearsContainer ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.yearsContainer ol button {
+  background-color: var(--primary);
+  color: var(--text);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.genresContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.genresContainer ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.genresContainer button {
+  background-color: var(--primary);
+  color: var(--text);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
