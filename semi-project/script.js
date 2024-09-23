@@ -1,10 +1,108 @@
-let storeIds = [];
+let storeIds = JSON.parse(localStorage.getItem("favoriteStores")) || []; // 로컬 스토리지에서 데이터 로드
+
+const API_KEY = "78a4b456e0a19ac893591fb5dc67d523"; // 여기에 자신의 카카오 API 키를 입력하세요.
+
+// 카카오 맵 API 로드
+const script = document.createElement("script");
+script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${API_KEY}`;
+document.head.appendChild(script);
+
+// 페이지 로드 시 즐겨찾기 목록 업데이트
+window.onload = function () {
+  updateFavoriteList();
+};
+
+// 가게 검색
+function searchStores() {
+  const query = document.getElementById("storeQuery").value.trim();
+  const searchResults = document.getElementById("searchResults");
+  searchResults.innerHTML = ""; // 이전 검색 결과 초기화
+
+  if (!query) {
+    alert("검색어를 입력하세요.");
+    return;
+  }
+
+  fetch(
+    `https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(
+      query
+    )}`,
+    {
+      headers: {
+        Authorization: `KakaoAK ${API_KEY}`,
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.documents.length === 0) {
+        alert("검색 결과가 없습니다.");
+        return;
+      }
+
+      data.documents.forEach((store) => {
+        const li = document.createElement("li");
+        li.textContent = `${store.place_name} - ${store.address_name}`;
+        li.onclick = () => {
+          document.getElementById("storeId").value = store.place_name; // 선택한 가게 이름을 입력 필드에 넣음
+          showLocation(store.address_name); // 가게 주소로 위치 표시
+        };
+        searchResults.appendChild(li);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("가게 검색에 실패했습니다.");
+    });
+}
+
+// 주소로 위치 표시
+function showLocation(address) {
+  var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+    mapOption = {
+      center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+      level: 3, // 지도의 확대 레벨
+    };
+
+  // 지도를 생성합니다
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+
+  // 주소-좌표 변환 객체를 생성합니다
+  var geocoder = new kakao.maps.services.Geocoder();
+
+  // 주소로 좌표를 검색합니다
+  geocoder.addressSearch(address, function (result, status) {
+    // 정상적으로 검색이 완료됐으면
+    if (status === kakao.maps.services.Status.OK) {
+      var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+      // 결과값으로 받은 위치를 마커로 표시합니다
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: coords,
+      });
+
+      // 인포윈도우로 장소에 대한 설명을 표시합니다
+      var infowindow = new kakao.maps.InfoWindow({
+        content:
+          '<div style="width:150px;text-align:center;padding:6px 0;">' +
+          address +
+          "</div>",
+      });
+      infowindow.open(map, marker);
+
+      // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+      map.setCenter(coords);
+    }
+  });
+}
 
 // 즐겨찾기 추가
 function addFavorite() {
   const storeId = document.getElementById("storeId").value.trim();
   if (storeId && !storeIds.includes(storeId)) {
     storeIds.push(storeId);
+    localStorage.setItem("favoriteStores", JSON.stringify(storeIds)); // 로컬 스토리지에 저장
     updateFavoriteList();
     alert(`Store ${storeId} has been added to favorites.`);
   } else if (storeIds.includes(storeId)) {
@@ -20,6 +118,7 @@ function removeFavorite() {
   const index = storeIds.indexOf(storeId);
   if (index > -1) {
     storeIds.splice(index, 1);
+    localStorage.setItem("favoriteStores", JSON.stringify(storeIds)); // 로컬 스토리지에 저장
     updateFavoriteList();
     alert(`Store ${storeId} has been removed from favorites.`);
   } else {
